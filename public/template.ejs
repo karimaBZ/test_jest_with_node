@@ -1,0 +1,468 @@
+<html>
+
+<head>
+    <style type="text/css">
+        * {
+            color: #000000;
+            display: inline-block;
+            width: 600px;
+        }
+        .header {
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 20px;
+            border-bottom: #000000 1px solid;
+            margin-bottom: 20px;
+        }
+
+        .header-intro {
+            width: 50%;
+            font-family: 'RenaultLife_Bold' !important;
+            font-weight: 700;
+        }
+
+        .header-intro .descritption {
+            font-size: 13px;
+            line-height: 16px;
+            font-weight: bold;
+            width: 50%;
+        }
+
+        .header-intro .name {
+            width: 50%;
+            font-size: 19px;
+            line-height: 23px;
+        }
+        .content_intro { 
+            margin-bottom: 20px;
+        }
+        .content_intro td {
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        .content_detail__intro {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .content_detail__subject {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .content_detail__subject td {
+            height: 24px;
+            width: 175px;
+            background-color: #e0e0e0;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .content_detail__request {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 600px;
+        }
+        .content_detail__request-info {
+            width: 196px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .content_detail__request-info td {
+            height: 50px;
+            width: 175px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .content_detail__request-info div {
+            border: 1px solid #E0E0E0;
+            width: 100%;
+            height: 10px;
+            margin-bottom: 10px;
+            font-size: 9px;
+            line-height: 11px;
+            padding: 10px 5px 10px 5px;
+        }
+
+        .file_content {
+            width: 550px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .file_content .file {
+            display: inline-block;
+            width: 92%;
+            height: 83px;
+            border: 1px solid #E0E0E0;
+            padding: 20px;
+        }
+
+        .file div {
+            width: 176px;
+            height: 24px;
+            border: 1px solid #000000;
+            padding: 5px;
+        }
+
+        .content_detail__request-info-text {
+            display: inline-block;
+            width: 550px;
+        } 
+        .content_detail__request-info-text .text {
+            display: inline-block;
+            width: 550px;
+            height: 83px;
+            border: 1px solid #E0E0E0;
+            padding: 20px;
+        }
+
+        .file_content span,
+        .file span,
+        .content_detail__request-info-text span {
+            font-size: 13px;
+            line-height: 17px;
+            width: 95%;
+            display: inline-block;
+            margin-bottom: 20px;
+           
+        }
+
+        .user-content {
+            display: inline-block;
+            width: 600px;
+            font-size: 9px;
+            line-height: 11px;
+        }
+        .user-content_intro {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .user-content_intro span {
+            font-size: 14px;
+            line-height: 17px;
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr class="header">
+                <td class="header-intro">
+                    <span class="name">Email de détail de demande de contact</span> <br />
+                    <span class="description">Le portail de mise en contact avec votre client </span>
+                </td>
+            </tr>
+            <tr class="content_intro">
+                Bonjour, <br />Nous avons bien reçu votre demande n°<%= numeroDemande %> et nous vous
+                en remercions.
+                <br /> Nous vous répondrons dans un délai de 48h.
+            </tr>
+            <tr class="content_detail__intro">DÉTAIL DE VOTRE DEMANDE N° <%= numeroDemande %></tr>
+            <tr class="content_detail__subject">
+                <td>
+                    <%= topic %>
+                </td>
+                <td>
+                    <% if (subject) { %>
+                    <%= subject %>
+                    <% } else { %>
+                        Autre
+                    <%} %>
+                </td>
+            </tr>
+            <% if (nom) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Nom</label>
+                    <div><%= nom %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (prenom) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Prenom</label>
+                    <div><%= prenom %></div>
+                </td>
+
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (email) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Email</label>
+                    <div><%= email %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (telephone) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Téléphone</label>
+                    <div><%= telephone %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (ville) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Ville</label>
+                    <div><%= ville %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (adresse) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Adresse</label>
+                    <div><%= adresse %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (codePostal) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Code Postal</label>
+                    <div><%= codePostal %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+
+            <% if (fonction) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Fonction</label>
+                    <div><%= fonction %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (chassis) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Chassis</label>
+                    <div><%= chassis %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (immatriculation) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Immatriculation</label>
+                    <div><%= immatriculation %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (RRF) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Code RRF</label>
+                    <div><%= RRF %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (dateFermeture) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Date Fermeture</label>
+                    <div><%= dateFermeture %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (numeroCommande) { %>
+                <tr class="content_detail__request-info">
+                    <td>
+                        <label>Numéro de Commande</label>
+                        <div><%= numeroCommande %></div>
+                    </td>
+                </tr>
+                <% } else { %>
+                <tr class="content_detail__request-info" style="display: none;"></tr>
+                <%} %>
+            <% if (dateEnvoieSouhaite) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Date d'envoie souhaitée</label>
+                    <div><%= dateEnvoieSouhaite %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (heureEnvoieSouhaite) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Heure d'envoie souhaitée</label>
+                    <div><%= heureEnvoieSouhaite %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (numeroFacture) { %>
+                <tr class="content_detail__request-info">
+                    <td>
+                        <label>Numéro de Facture</label>
+                        <div><%= numeroFacture %></div>
+                    </td>
+                </tr>
+                <% } else { %>
+                <tr class="content_detail__request-info" style="display: none;"></tr>
+                <%} %>
+                <% if (factureRRF) { %>
+                    <tr class="content_detail__request-info">
+                        <td>
+                            <label>RRF de Facture</label>
+                            <div><%= factureRRF %></div>
+                        </td>
+                    </tr>
+                    <% } else { %>
+                    <tr class="content_detail__request-info" style="display: none;"></tr>
+                    <%} %>
+            <% if (dateDebutFacture) { %>
+                <tr class="content_detail__request-info">
+                    <td>
+                        <label>Date début de Facture</label>
+                        <div><%= dateDebutFacture %></div>
+                    </td>
+                </tr>
+                <% } else { %>
+                <tr class="content_detail__request-info" style="display: none;"></tr>
+                <%} %>
+            <% if (dateFinFacture) { %>
+                <tr class="content_detail__request-info">
+                    <td>
+                        <label>Date de fin de Facture</label>
+                        <div><%= dateFinFacture %></div>
+                    </td>
+                </tr>
+                <% } else { %>
+                <tr class="content_detail__request-info" style="display: none;"></tr>
+                <%} %>
+                
+            <% if (RRF) { %>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Code RRF</label>
+                    <div><%= RRF %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info" style="display: none;"></tr>
+            <%} %>
+            <% if (texteLibre) { %>
+            <tr class="content_detail__request-info-text">
+                <td>
+                    <span>Vos remarques</span>
+                    <div class="text"><%= texteLibre %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info-text" style="display: none;"></tr>
+            <%} %>
+            <% if (motifAnnulation) { %>
+            <tr class="content_detail__request-info-text">
+                <td>
+                    <span>Motif d'annulation</span>
+                    <div class="text"><%= motifAnnulation %></div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="content_detail__request-info-text" style="display: none;"></tr>
+            <%} %>
+            <% if (fichiersJoint) { %>
+            <tr class="file_content">
+                <td>
+                    <span>Pour mieux vous aider, merci de préciser votre demande :</span>
+                    <div class="file">
+                        <span>Je souhaite ajouter un nouveau profil utilisateur. Pouvez-vous me détailler la marche à
+                            suivre
+                            svp ?</span>
+                        <% fichiersJoint.map((fichier)=>{ %>
+                        <div>
+                            <%= fichier.name %>
+                        </div>
+                        <% }) %>
+                    </div>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr class="file" style="display: none;"></tr>
+            <%} %>
+            <tr class="user-content_intro">
+                <span>Pour vous contacter :</span>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Nom</label>
+                    <div><%= nomUser %></div>
+                </td>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Prénom</label>
+                    <div><%= prenomUser %></div>
+                </td>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Email</label>
+                    <div><%= emailUser %></div>
+                </td>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Tél</label>
+                    <div><%= telephoneUser %></div>
+                </td>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>Code RRF</label>
+                    <div><%= codeRRFUser %></div>
+                </td>
+            </tr>
+            <tr class="content_detail__request-info">
+                <td>
+                    <label>DR</label>
+                    <div><%= drUser %></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
